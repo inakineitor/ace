@@ -1,0 +1,8 @@
+define("ace/mode/xtasm_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/text_highlight_rules"],function(e,t,n){"use strict";var r=e("../lib/oop"),i=e("./text_highlight_rules").TextHighlightRules,s=function(){this.$rules={start:[{token:"empty_line",regex:"^$"},{defaultToken:"text"},{token:"blue",regex:/^ *(FUNCTION)(?:$| +.*$) *|^ *(?:JMP(?:.{0}|_ZERO|_ONE|_POS|_NEG))(?:$| +(.*) *$)|^ *(.+:) *|^ *(XTASM)(?:$| +.*$)/},{token:"dark_green",regex:/^ *(SET)(?:$| +.*)/},{token:"light_red",regex:/^ *(INPUT)(?:$| +.*$)|^ *(PRINT(?:.{0}|S|NL|_STR|_STR_NS))(?:$| +.*$)|^ *(NL|SPACE)(?:$| +$)/},{token:"pink",regex:/^ *(RET|EXIT|CONF|\/CONF)(?:$| +$)|^ *(IF|CALL)(?:$| +.*$)|^ *(JMP(?:.{0}|_ZERO|_ONE|_POS|_NEG))(?:$| +.*$)/},{token:"orange",regex:/^ *(INCR|DECR|ADD|SUB|MUL|DIV|MOD)(?:$| +.*$)/},{token:"yellow",regex:/^ *(PUSH|POP|ERASE|REVERSE|WAIT|SAVE|SAVE_T|CONFIGURE|TAKE|OPEN_CAMERA)(?:$| +.*$)|^ *(?:FUNCTION|CALL) +(.*)(?:$| +.*$)/},{token:"light_green",regex:/^ *.*(#.*$)/}]}};r.inherits(s,i),t.XtasmHighlightRules=s}),define("ace/mode/xtasm",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/xtasm_highlight_rules"],function(e,t,n){"use strict";var r=e("../lib/oop"),i=e("./text").Mode,s=e("./xtasm_highlight_rules").XtasmHighlightRules,o=function(){this.HighlightRules=s};r.inherits(o,i),function(){this.$id="ace/mode/xtasm"}.call(o.prototype),t.Mode=o});                (function() {
+                    window.require(["ace/mode/xtasm"], function(m) {
+                        if (typeof module == "object" && typeof exports == "object" && module) {
+                            module.exports = m;
+                        }
+                    });
+                })();
+            
